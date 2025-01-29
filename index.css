@@ -5,7 +5,7 @@ body{
 
 .container{
     background-color: gray;
-    height:500px;
+    height:600px;
     width:600px;
     padding: 20px;
 }
@@ -28,19 +28,40 @@ body{
     margin-top: 10px;
 }
 .btn{
-    padding:22px;
+    padding:20px;
     font-size: medium;
 }
 .top2{
     display:flex;
     justify-content: space-between;
-    
+    margin-top: 5px;
 }
 #Trigo{
     font-size:x-large;
-    
 }
 .deg{
     font-size: x-large;
- 
+}
+.bottom{
+    margin-top: 10px;
+}
+.bottom1{
+    display: flex;
+    justify-content: space-evenly;
+}
+.bottom2{
+    display: flex;
+    justify-content: space-evenly;
+}
+.bottom3{
+    display: flex;
+    justify-content: space-evenly;
+}
+.bottom4{
+    display: flex;
+    justify-content: space-evenly;
+}
+.btn1{
+    padding:25px;
+    font-size: x-largex ;
 }
