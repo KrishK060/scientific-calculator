@@ -5,8 +5,8 @@ body{
 
 .container{
     background-color: gray;
-    height:600px;
-    width:600px;
+    height:640px;
+    width:610px;
     padding: 20px;
 }
 
@@ -26,9 +26,19 @@ body{
     display: flex;
     justify-content:space-between;
     margin-top: 10px;
+   
+}
+.deg{
+    align-items: center;
+}
+button{
+    height:50px;
+    /* padding:30px; */
+    width:40%;
+    font-size: large;
 }
 .btn{
-    padding:20px;
+    /* padding:20px; */
     font-size: medium;
 }
 .top2{
@@ -47,21 +57,35 @@ body{
 }
 .bottom1{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 .bottom2{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 .bottom3{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 .bottom4{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
+.bottom5{
+    display: flex;
+    justify-content: space-between;
+}
+.bottom6{
+    display: flex;
+    justify-content: space-between;
+}
+.bottom7{
+    display: flex;
+    justify-content: space-between;
+}
+
 .btn1{
-    padding:25px;
+    /* padding:25px; */
+    /* width: 30px; */
     font-size: x-largex ;
 }
