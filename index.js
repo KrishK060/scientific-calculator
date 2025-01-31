@@ -50,21 +50,6 @@ class Calculator {
         string = (string) * (-1);
         document.querySelector('input').value = string
     }
-    // logarithm() {
-    //     // Replace 'log' with 'Math.log10' for logarithmic calculations
-    //     console.log("sdf")
-    //     this.string = this.string.replace(/log/g, 'Math.log');
-
-    //     // Now, evaluate the expression
-    //     try {
-    //         string = eval(string);
-    //         document.querySelector('input').value = string;
-    //     } catch (e) {
-    //         document.querySelector('input').value = 'Error';
-    //     }
-    // }
-
-
 }
 let ca = new Calculator;
 Array.from(buttons).forEach((buttons) => {

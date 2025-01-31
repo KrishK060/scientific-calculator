@@ -23,7 +23,7 @@ Calculator.prototype.lnNum = (expression) => {
     }
 
     // Calculate the log of the last number
-    let result = Math.LN2; // <-- Using Math.log() to calculate the logarithm
+    let result = Math.LN2*(lastNum); // <-- Using Math.log() to calculate the logarithm
     let tempInput = document.querySelector('input').value.slice(0, document.querySelector('input').value.length - lastNum.length);
     document.querySelector('input').value = tempInput + result; // <-- Updated input value with the log result
 }
