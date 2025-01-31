@@ -107,6 +107,32 @@ class Calculator {
         string = (string) * (-1);
         document.querySelector('input').value = string
     }
+    memoryStore() {
+        this.memory = parseFloat(document.querySelector('input').value);
+        console.log("Memory Stored: " + this.memory);
+    }
+
+    // Memory Clear (MC)
+    memoryClear() {
+        this.memory = 0;
+        console.log("Memory Cleared");
+    }
+    memoryRecall() {
+        document.querySelector('input').value = this.memory;
+        console.log("Memory Recalled: " + this.memory);
+    }
+
+    // Memory Add (M+)
+    memoryAdd() {
+        this.memory += parseFloat(document.querySelector('input').value);
+        console.log("Added to Memory: " + this.memory);
+    }
+
+    // Memory Subtract (M-)
+    memorySubtract() {
+        this.memory -= parseFloat(document.querySelector('input').value);
+        console.log("Subtracted from Memory: " + this.memory);
+    }
 }
 let ca = new Calculator;
 Array.from(buttons).forEach((buttons) => {
@@ -161,8 +187,17 @@ Array.from(buttons).forEach((buttons) => {
         else if (e.target.innerHTML == "n!") {
             ca.factorial();
         }
-        
-
+        else if (e.target.innerHTML == "MS") {
+            ca.memoryStore();
+        } else if (e.target.innerHTML == "MC") {
+            ca.memoryClear();
+        } else if (e.target.innerHTML == "MR") {
+            ca.memoryRecall();
+        } else if (e.target.innerHTML == "M+") {
+            ca.memoryAdd();
+        } else if (e.target.innerHTML == "M-") {
+            ca.memorySubtract();
+        }
         else {
             ca.stringUpdate(e.target.value)
         }
