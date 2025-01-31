@@ -1,7 +1,8 @@
 
 let string = " "
-let buttons = document.querySelectorAll("button");
+let buttons = document.querySelectorAll(".btn");
 let input = document.getElementById('input').value;
+let flag =0;
 
 class Calculator {
     constructor() {
@@ -87,6 +88,20 @@ Array.from(buttons).forEach((buttons) => {
         else if (e.target.innerHTML == "ln") {
             ca.lnNum(document.querySelector('input').value);
         }
+        else if(e.target.value=="deg"){
+            console.log("inside")
+            if(flag == 0){
+                console.log("rad")
+                document.querySelector("#deg").innerHTML="rad";
+                flag = 1;
+            }
+            
+            else{
+                console.log("deg")
+                flag = 0;
+                document.querySelector("#deg").innerHTML="deg";
+            }
+        }
 
         else {
             ca.stringUpdate(e.target.value)
@@ -96,8 +111,27 @@ Array.from(buttons).forEach((buttons) => {
 
     })
 });
+let select = document.querySelector("#Trigo")
+select.addEventListener("change",(e)=>{
+    if (e.target.value == "Sin") {
+        console.log("sin")
+        ca.sin(document.querySelector('input').value);
+    }
+    else if (e.target.value == "Cos") {
+        console.log("cos")
+        ca.cos(document.querySelector('input').value);
+    }
+    else if (e.target.value == "Tan") {
+        console.log("tan")
+        ca.tan(document.querySelector('input').value);
+    }
 
-export{input,Calculator,string}
+    else {
+        ca.stringUpdate(e.target.value)
+    }
+}
+)
+export{input,Calculator,string,flag}
 
 
 
