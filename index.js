@@ -1,6 +1,8 @@
 
 let string = " "
 let buttons = document.querySelectorAll("button");
+let input = document.getElementById('input').value;
+
 class Calculator {
     constructor() {
         this.string = " ";
@@ -9,9 +11,11 @@ class Calculator {
         string += value;
         document.querySelector('input').value = string
     }
+ 
     finalAns() {
-        string = eval(string);
+        string = eval(document.querySelector('input').value);
         document.querySelector('input').value = string
+        
     }
     clear() {
         string = " ";
@@ -46,6 +50,21 @@ class Calculator {
         string = (string) * (-1);
         document.querySelector('input').value = string
     }
+    // logarithm() {
+    //     // Replace 'log' with 'Math.log10' for logarithmic calculations
+    //     console.log("sdf")
+    //     this.string = this.string.replace(/log/g, 'Math.log');
+
+    //     // Now, evaluate the expression
+    //     try {
+    //         string = eval(string);
+    //         document.querySelector('input').value = string;
+    //     } catch (e) {
+    //         document.querySelector('input').value = 'Error';
+    //     }
+    // }
+
+
 }
 let ca = new Calculator;
 Array.from(buttons).forEach((buttons) => {
@@ -78,8 +97,12 @@ Array.from(buttons).forEach((buttons) => {
             ca.changeSign();
         }
         else if (e.target.innerHTML == "log") {
-            ca.logarithm();
+            ca.logNum(document.querySelector('input').value);
         }
+        else if (e.target.innerHTML == "ln") {
+            ca.lnNum(document.querySelector('input').value);
+        }
+
         else {
             ca.stringUpdate(e.target.value)
         }
@@ -89,7 +112,7 @@ Array.from(buttons).forEach((buttons) => {
     })
 });
 
-export{Calculator,string}
+export{input,Calculator,string}
 
 
 
