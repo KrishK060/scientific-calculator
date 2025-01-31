@@ -83,8 +83,26 @@ class Calculator {
         let tempInput = document.querySelector('input').value.slice(0, document.querySelector('input').value.length - lastNum.length);
         document.querySelector('input').value = tempInput + result;
     }
-    
-    
+    factorial() {
+        let lastNum = this.getLastNumber(document.querySelector('input').value); // Use 'this' to call the method on the instance
+
+        if (lastNum === "") {
+            document.querySelector('input').value = 'Error: Invalid Input';
+            return;
+        }
+        let num = parseInt(lastNum);
+        if (isNaN(num) || num < 0) {
+            document.querySelector('input').value = 'Error: Invalid Input';
+            return;
+        }
+        let result = 1;
+        for (let i = 1; i <= num; i++) {
+            result *= i; 
+        }
+        let tempInput = document.querySelector('input').value.slice(0, document.querySelector('input').value.length - lastNum.length);
+        document.querySelector('input').value = tempInput + result;
+        
+    }
     changeSign() {
         string = (string) * (-1);
         document.querySelector('input').value = string
@@ -140,6 +158,10 @@ Array.from(buttons).forEach((buttons) => {
                 document.querySelector("#deg").innerHTML="deg";
             }
         }
+        else if (e.target.innerHTML == "n!") {
+            ca.factorial();
+        }
+        
 
         else {
             ca.stringUpdate(e.target.value)
