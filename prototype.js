@@ -66,5 +66,76 @@ Calculator.prototype.cos = (expression) => {
     let tempInput = document.querySelector('input').value.slice(0, document.querySelector('input').value.length - lastNum.length);
     document.querySelector('input').value = tempInput + result;
 }
-
+Calculator.prototype.tan = (expression) => {
+   
+    let lastNum =  getLastNumber(expression);
+    let result
+    if (lastNum === "") {
+        document.querySelector('input').value = 'Error: Invalid Log';
+        return;
+    }
+    console.log(lastNum);
+    if(flag == 0){
+        result = 1/Math.tan(lastNum*(Math.PI/180));
+    }else{
+        result = Math.tan(lastNum);
+    }
+    
+    let tempInput = document.querySelector('input').value.slice(0, document.querySelector('input').value.length - lastNum.length);
+    document.querySelector('input').value = tempInput + result;
+}
+Calculator.prototype.cot = (expression) => {
+   
+    let lastNum =  getLastNumber(expression);
+    let result
+    if (lastNum === "") {
+        document.querySelector('input').value = 'Error: Invalid Log';
+        return;
+    }
+    console.log(lastNum);
+    if(flag == 0){
+        result = 1/Math.tan(lastNum*(Math.PI/180));
+    }else{
+        result = 1/Math.tan(lastNum);
+    }
+    
+    let tempInput = document.querySelector('input').value.slice(0, document.querySelector('input').value.length - lastNum.length);
+    document.querySelector('input').value = tempInput + result;
+}
+Calculator.prototype.cosec = (expression) => {
+   
+    let lastNum =  getLastNumber(expression);
+    let result
+    if (lastNum === "") {
+        document.querySelector('input').value = 'Error: Invalid Log';
+        return;
+    }
+    console.log(lastNum);
+    if(flag == 0){
+        result = 1/Math.sin(lastNum*(Math.PI/180));
+    }else{
+        result = 1/Math.sin(lastNum);
+    }
+    
+    let tempInput = document.querySelector('input').value.slice(0, document.querySelector('input').value.length - lastNum.length);
+    document.querySelector('input').value = tempInput + result;
+}
+Calculator.prototype.sec = (expression) => {
+   
+    let lastNum =  getLastNumber(expression);
+    let result
+    if (lastNum === "") {
+        document.querySelector('input').value = 'Error: Invalid Log';
+        return;
+    }
+    console.log(lastNum);
+    if(flag == 0){
+        result = 1/Math.cos(lastNum*(Math.PI/180));
+    }else{
+        result = 1/Math.cos(lastNum);
+    }
+    
+    let tempInput = document.querySelector('input').value.slice(0, document.querySelector('input').value.length - lastNum.length);
+    document.querySelector('input').value = tempInput + result;
+}
     export { Calculator };

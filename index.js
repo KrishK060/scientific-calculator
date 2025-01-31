@@ -125,6 +125,18 @@ select.addEventListener("change",(e)=>{
         console.log("tan")
         ca.tan(document.querySelector('input').value);
     }
+    else if (e.target.value == "Cot") {
+        console.log("cot")
+        ca.cot(document.querySelector('input').value);
+    }
+    else if (e.target.value == "Cosec") {
+        console.log("Cosec")
+        ca.cosec(document.querySelector('input').value);
+    }
+    else if (e.target.value == "Sec") {
+        console.log("Sec")
+        ca.sec(document.querySelector('input').value);
+    }
 
     else {
         ca.stringUpdate(e.target.value)
