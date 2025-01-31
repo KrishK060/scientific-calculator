@@ -8,6 +8,10 @@ class Calculator {
     constructor() {
         this.string = " ";
     }
+    getLastNumber(expression) {
+        let parts = expression.split(/[^0-9.]/); //Split the expression by non-numeric characters
+        return parts.filter(num => num !== "").pop(); //Return the last number from the array
+    }
     stringUpdate(value) {
         string += value;
         document.querySelector('input').value = string
@@ -31,22 +35,56 @@ class Calculator {
         document.querySelector('input').value = string
     }
     exponential() {
-        string = Math.exp(string)
-        document.querySelector('input').value = string
+        // string = Math.exp(string)
+        let lastNum = this.getLastNumber(document.querySelector('input').value); // Use 'this' to call the method on the instance
+    
+        if (lastNum === "") {
+            document.querySelector('input').value = 'Error: Invalid Log';
+            return;
+        }
+        let result = Math.exp(lastNum);
+        let tempInput = document.querySelector('input').value.slice(0, document.querySelector('input').value.length - lastNum.length);
+        document.querySelector('input').value = tempInput + result;
     }
     inverse() {
         string = 1 / string;
-        document.querySelector('input').value = string
+        let lastNum = this.getLastNumber(document.querySelector('input').value); // Use 'this' to call the method on the instance
+    
+        if (lastNum === "") {
+            document.querySelector('input').value = 'Error: Invalid Log';
+            return;
+        }
+        let result = 1/lastNum;
+        let tempInput = document.querySelector('input').value.slice(0, document.querySelector('input').value.length - lastNum.length);
+        document.querySelector('input').value = tempInput + result;
     }
     square() {
-        string = Math.pow(string, 2);
-        // console.log(string)
-        document.querySelector('input').value = string;
+        // string = Math.pow(string, 2);
+        
+        let lastNum = this.getLastNumber(document.querySelector('input').value); // Use 'this' to call the method on the instance
+    
+        if (lastNum === "") {
+            document.querySelector('input').value = 'Error: Invalid Log';
+            return;
+        }
+        let result = Math.pow(lastNum,2);
+        let tempInput = document.querySelector('input').value.slice(0, document.querySelector('input').value.length - lastNum.length);
+        document.querySelector('input').value = tempInput + result;
     }
     squareRoot() {
-        string = Math.sqrt(string);
-        document.querySelector('input').value = string
+
+        let lastNum = this.getLastNumber(document.querySelector('input').value); // Use 'this' to call the method on the instance
+    
+        if (lastNum === "") {
+            document.querySelector('input').value = 'Error: Invalid Log';
+            return;
+        }
+        let result = Math.sqrt(lastNum);
+        let tempInput = document.querySelector('input').value.slice(0, document.querySelector('input').value.length - lastNum.length);
+        document.querySelector('input').value = tempInput + result;
     }
+    
+    
     changeSign() {
         string = (string) * (-1);
         document.querySelector('input').value = string
