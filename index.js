@@ -234,4 +234,4 @@ select.addEventListener("change", (e) => {
     }
 }
 )
-export {Calculator, convert }
+export { Calculator,convert }
