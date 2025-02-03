@@ -7,6 +7,7 @@ let flag =0;
 class Calculator {
     constructor() {
         this.string = " ";
+        this.memory = 0;
     }
     getLastNumber(expression) {
         let parts = expression.split(/[^0-9.]/); //Split the expression by non-numeric characters
@@ -108,8 +109,11 @@ class Calculator {
         document.querySelector('input').value = string
     }
     memoryStore() {
-        this.memory = parseFloat(document.querySelector('input').value);
-        console.log("Memory Stored: " + this.memory);
+        let lastNum = this.getLastNumber(document.querySelector('input').value);
+        // console.log(lastNum)
+        this.memory += parseFloat(lastNum);
+
+        console.log("Stored to Memory: " + this.memory);
     }
 
     // Memory Clear (MC)
@@ -124,13 +128,19 @@ class Calculator {
 
     // Memory Add (M+)
     memoryAdd() {
-        this.memory += parseFloat(document.querySelector('input').value);
+        let lastNum = this.getLastNumber(document.querySelector('input').value);
+        // console.log(lastNum)
+        this.memory += parseFloat(lastNum);
+
         console.log("Added to Memory: " + this.memory);
     }
 
     // Memory Subtract (M-)
     memorySubtract() {
-        this.memory -= parseFloat(document.querySelector('input').value);
+        let lastNum = this.getLastNumber(document.querySelector('input').value);
+
+        this.memory += parseFloat(lastNum);
+
         console.log("Subtracted from Memory: " + this.memory);
     }
 }
@@ -187,15 +197,15 @@ Array.from(buttons).forEach((buttons) => {
         else if (e.target.innerHTML == "n!") {
             ca.factorial();
         }
-        else if (e.target.innerHTML == "MS") {
+        else if (e.target.value == "MS") {
             ca.memoryStore();
-        } else if (e.target.innerHTML == "MC") {
+        } else if (e.target.value == "MC") {
             ca.memoryClear();
-        } else if (e.target.innerHTML == "MR") {
+        } else if (e.target.value == "MR") {
             ca.memoryRecall();
-        } else if (e.target.innerHTML == "M+") {
+        } else if (e.target.value == "M+") {
             ca.memoryAdd();
-        } else if (e.target.innerHTML == "M-") {
+        } else if (e.target.value == "M-") {
             ca.memorySubtract();
         }
         else {
