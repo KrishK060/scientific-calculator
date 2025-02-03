@@ -1,6 +1,4 @@
 import { Calculator, string, input, flag } from './index.js';
-
-
 Calculator.prototype.logNum = (expression) => {
     let lastNum = getLastNumber(expression);
     if (lastNum === "") {
@@ -33,60 +31,26 @@ function updateInputField(lastNum, result) {
     inputField.value = tempInput + result;
 }
 Calculator.prototype.sin = (lastNum) => {
-    if (lastNum === "") {
-        document.querySelector('input').value = 'Error: Invalid Log';
-        return;
-    }
-    let result = (document.querySelector("#deg").value == "deg") ?  Math.sin(lastNum * (Math.PI / 180)):Math.sin(lastNum);
+    let result = (document.querySelector("#deg").value == "deg") ? Math.sin(lastNum * (Math.PI / 180)) : Math.sin(lastNum);
     updateInputField(lastNum, result);
 }
-Calculator.prototype.cos = (expression) => {
-    let lastNum = getLastNumber(expression);
-    if (lastNum === "") {
-        document.querySelector('input').value = 'Error: Invalid Log';
-        return;
-    }
-    console.log(lastNum);
+Calculator.prototype.cos = (lastNum) => {
     let result = (document.querySelector("#deg").value == "deg") ? Math.cos(lastNum * (Math.PI / 180)) : Math.cos(lastNum);
     updateInputField(lastNum, result);
 }
-Calculator.prototype.tan = (expression) => {
-    let lastNum = getLastNumber(expression);
-    if (lastNum === "") {
-        document.querySelector('input').value = 'Error: Invalid Log';
-        return;
-    }
-    console.log(lastNum);
-    let result = (document.querySelector("#deg").value == "deg") ?  Math.tan(lastNum * (Math.PI / 180)) : 1 / Math.tan(lastNum);
+Calculator.prototype.tan = (lastNum) => {
+    let result = (document.querySelector("#deg").value == "deg") ? Math.tan(lastNum * (Math.PI / 180)) : 1 / Math.tan(lastNum);
     updateInputField(lastNum, result);
 }
-Calculator.prototype.cot = (expression) => {
-    let lastNum = getLastNumber(expression);
-    if (lastNum === "") {
-        document.querySelector('input').value = 'Error: Invalid Log';
-        return;
-    }
-    console.log(lastNum);
+Calculator.prototype.cot = (lastNum) => {
     let result = (document.querySelector("#deg").value == "deg") ? 1 / Math.tan(lastNum * (Math.PI / 180)) : 1 / Math.tan(lastNum);
     updateInputField(lastNum, result);
 }
-Calculator.prototype.cosec = (expression) => {
-    let lastNum = getLastNumber(expression);
-    if (lastNum === "") {
-        document.querySelector('input').value = 'Error: Invalid Log';
-        return;
-    }
-    console.log(lastNum);
+Calculator.prototype.cosec = (lastNum) => {
     let result = (document.querySelector("#deg").value == "deg") ? 1 / Math.sin(lastNum * (Math.PI / 180)) : 1 / Math.sin(lastNum);
     updateInputField(lastNum, result);
 }
-Calculator.prototype.sec = (expression) => {
-    let lastNum = getLastNumber(expression);
-    if (lastNum === "") {
-        document.querySelector('input').value = 'Error: Invalid Log';
-        return;
-    }
-    console.log(lastNum);
+Calculator.prototype.sec = (lastNum) => {
     let result = (document.querySelector("#deg").value == "deg") ? 1 / Math.cos(lastNum * (Math.PI / 180)) : 1 / Math.cos(lastNum);
     updateInputField(lastNum, result);
 }

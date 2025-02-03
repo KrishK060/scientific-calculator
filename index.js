@@ -160,16 +160,16 @@ Array.from(buttons).forEach((buttons) => {
                 break;
             case "deg":
                 console.log("inside");
-              
-                    console.log("rad");
-                    document.querySelector("#deg").value = "red";
-                    document.querySelector("#deg").innerHTML = "RAD";
-                    break;
+
+                console.log("rad");
+                document.querySelector("#deg").value = "red";
+                document.querySelector("#deg").innerHTML = "RAD";
+                break;
             case "red":
-                    console.log("deg");
-                    document.querySelector("#deg").value = "deg";
-                    document.querySelector("#deg").innerHTML = "deg";
-                    break;
+                console.log("deg");
+                document.querySelector("#deg").value = "deg";
+                document.querySelector("#deg").innerHTML = "deg";
+                break;
             case "n!":
                 ca.factorial();
                 break;
@@ -197,12 +197,16 @@ Array.from(buttons).forEach((buttons) => {
 let select = document.querySelector("#Trigo")
 select.addEventListener("change", (e) => {
     let lastNum = ca.getLastNumber(input.value);
+    if (lastNum === "") {
+        document.querySelector('input').value = 'Error: Invalid Log';
+        return;
+    }
     switch (e.target.value) {
         case "Sin":
             ca.sin(lastNum);
             break;
         case "Cos":
-           ca.cos(lastNum);
+            ca.cos(lastNum);
             break;
         case "Tan":
             ca.tan(lastNum);
@@ -211,7 +215,7 @@ select.addEventListener("change", (e) => {
             ca.cot(lastNum);
             break;
         case "Cosec":
-           ca.cosec(lastNum);
+            ca.cosec(lastNum);
             break;
         case "Sec":
             ca.sec(lastNum);
