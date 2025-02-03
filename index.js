@@ -40,48 +40,28 @@ class Calculator {
         input.value = string
     }
     exponential() {
-        let lastNum = this.getLastNumber(input.value); // Use 'this' to call the method on the instance
-        if (lastNum === "") {
-            input.value = 'Error: Invalid Log';
-            return;
-        }
+        let lastNum = this.getLastNumber(input.value); 
         let result = Math.exp(lastNum);
         this.updateInputField(lastNum, result);
     }
     inverse() {
         string = 1 / string;
-        let lastNum = this.getLastNumber(input.value); // Use 'this' to call the method on the instance
-        if (lastNum === "") {
-            input.value = 'Error: Invalid Log';
-            return;
-        }
+        let lastNum = this.getLastNumber(input.value); 
         let result = 1 / lastNum;
         this.updateInputField(lastNum, result);
     }
     square() {
-        let lastNum = this.getLastNumber(input.value); // Use 'this' to call the method on the instance
-        if (lastNum === "") {
-            input.value = 'Error: Invalid Log';
-            return;
-        }
+        let lastNum = this.getLastNumber(input.value); 
         let result = Math.pow(lastNum, 2);
         this.updateInputField(lastNum, result);
     }
     squareRoot() {
-        let lastNum = this.getLastNumber(input.value); // Use 'this' to call the method on the instance
-        if (lastNum === "") {
-            input.value = 'Error: Invalid Log';
-            return;
-        }
+        let lastNum = this.getLastNumber(input.value); 
         let result = Math.sqrt(lastNum);
         this.updateInputField(lastNum, result);
     }
     factorial() {
-        let lastNum = this.getLastNumber(input.value); // Use 'this' to call the method on the instance
-        if (lastNum === "") {
-            input.value = 'Error: Invalid Input';
-            return;
-        }
+        let lastNum = this.getLastNumber(input.value); 
         let num = parseInt(lastNum);
         if (isNaN(num) || num < 0) {
             input.value = 'Error: Invalid Input';
