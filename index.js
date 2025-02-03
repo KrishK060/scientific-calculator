@@ -7,6 +7,7 @@ let flag = 0;
 class Calculator {
     constructor() {
         this.string = " ";
+        this.memory = 0;
     }
     getLastNumber(expression) {
         let parts = expression.split(/[^0-9.]/); //Split the expression by non-numeric characters
@@ -35,22 +36,46 @@ class Calculator {
         document.querySelector('input').value = string
     }
     exponential() {
-        string = Math.exp(string)
-        document.querySelector('input').value = string
+        // string = Math.exp(string)
+        let lastNum = this.getLastNumber(document.querySelector('input').value); // Use 'this' to call the method on the instance
+
+        if (lastNum === "") {
+            document.querySelector('input').value = 'Error: Invalid Log';
+            return;
+        }
+        let result = Math.exp(lastNum);
+        let tempInput = document.querySelector('input').value.slice(0, document.querySelector('input').value.length - lastNum.length);
+        document.querySelector('input').value = tempInput + result;
     }
     inverse() {
         string = 1 / string;
-        document.querySelector('input').value = string
+        let lastNum = this.getLastNumber(document.querySelector('input').value); // Use 'this' to call the method on the instance
+
+        if (lastNum === "") {
+            document.querySelector('input').value = 'Error: Invalid Log';
+            return;
+        }
+        let result = 1 / lastNum;
+        let tempInput = document.querySelector('input').value.slice(0, document.querySelector('input').value.length - lastNum.length);
+        document.querySelector('input').value = tempInput + result;
     }
     square() {
-        string = Math.pow(string, 2);
-        document.querySelector('input').value = string;
+        // string = Math.pow(string, 2);
+
+        let lastNum = this.getLastNumber(document.querySelector('input').value); // Use 'this' to call the method on the instance
+
+        if (lastNum === "") {
+            document.querySelector('input').value = 'Error: Invalid Log';
+            return;
+        }
+        let result = Math.pow(lastNum, 2);
+        let tempInput = document.querySelector('input').value.slice(0, document.querySelector('input').value.length - lastNum.length);
+        document.querySelector('input').value = tempInput + result;
     }
     squareRoot() {
-        // debugger;
-        let lastNum = getLastNumber(input.value);
-        console.log("hello")
-        
+
+        let lastNum = this.getLastNumber(document.querySelector('input').value); // Use 'this' to call the method on the instance
+
         if (lastNum === "") {
             document.querySelector('input').value = 'Error: Invalid Log';
             return;
@@ -58,14 +83,66 @@ class Calculator {
         let result = Math.sqrt(lastNum);
         let tempInput = document.querySelector('input').value.slice(0, document.querySelector('input').value.length - lastNum.length);
         document.querySelector('input').value = tempInput + result;
-        // string = Math.sqrt(string);
-        // document.querySelector('input').value = string
+    }
+    factorial() {
+        let lastNum = this.getLastNumber(document.querySelector('input').value); // Use 'this' to call the method on the instance
+
+        if (lastNum === "") {
+            document.querySelector('input').value = 'Error: Invalid Input';
+            return;
+        }
+        let num = parseInt(lastNum);
+        if (isNaN(num) || num < 0) {
+            document.querySelector('input').value = 'Error: Invalid Input';
+            return;
+        }
+        let result = 1;
+        for (let i = 1; i <= num; i++) {
+            result *= i;
+        }
+        let tempInput = document.querySelector('input').value.slice(0, document.querySelector('input').value.length - lastNum.length);
+        document.querySelector('input').value = tempInput + result;
+
     }
     changeSign() {
         string = (string) * (-1);
         document.querySelector('input').value = string
     }
+    memoryStore() {
+        let lastNum = this.getLastNumber(document.querySelector('input').value);
+        // console.log(lastNum)
+        this.memory = parseFloat(lastNum);
 
+        console.log("Stored to Memory: " + this.memory);
+    }
+
+    // Memory Clear (MC)
+    memoryClear() {
+        this.memory = 0;
+        console.log("Memory Cleared");
+    }
+    memoryRecall() {
+        document.querySelector('input').value = this.memory
+        console.log("Memory Recalled: " + this.memory);
+    }
+
+    // Memory Add (M+)
+    memoryAdd() {
+        let lastNum = this.getLastNumber(document.querySelector('input').value);
+
+        this.memory += parseFloat(lastNum);
+        console.log("Subtracted from Memory: " + this.memory);
+    }
+
+
+
+    // Memory Subtract (M-)
+    memorySubtract() {
+        let lastNum = this.getLastNumber(document.querySelector('input').value);
+
+        this.memory -= parseFloat(lastNum);
+        console.log("Subtracted from Memory: " + this.memory);
+    }
 }
 let ca = new Calculator;
 Array.from(buttons).forEach((buttons) => {
@@ -115,6 +192,20 @@ Array.from(buttons).forEach((buttons) => {
                 flag = 0;
                 document.querySelector("#deg").innerHTML = "deg";
             }
+        }
+        else if (e.target.innerHTML == "n!") {
+            ca.factorial();
+        }
+        else if (e.target.value == "MS") {
+            ca.memoryStore();
+        } else if (e.target.value == "MC") {
+            ca.memoryClear();
+        } else if (e.target.value == "MR") {
+            ca.memoryRecall();
+        } else if (e.target.value == "M+") {
+            ca.memoryAdd();
+        } else if (e.target.value == "M-") {
+            ca.memorySubtract();
         }
         else {
             ca.stringUpdate(e.target.value)

@@ -33,7 +33,7 @@ function getLastNumber(expression) {
 Calculator.prototype.sin = (expression) => {
     
     let lastNum =  getLastNumber(expression);
-    let result
+    let result;
     if (lastNum === "") {
         document.querySelector('input').value = 'Error: Invalid Log';
         return;
@@ -51,7 +51,7 @@ Calculator.prototype.sin = (expression) => {
 Calculator.prototype.cos = (expression) => {
    
     let lastNum =  getLastNumber(expression);
-    let result
+    let result;
     if (lastNum === "") {
         document.querySelector('input').value = 'Error: Invalid Log';
         return;
@@ -69,7 +69,7 @@ Calculator.prototype.cos = (expression) => {
 Calculator.prototype.tan = (expression) => {
    
     let lastNum =  getLastNumber(expression);
-    let result
+    let result;
     if (lastNum === "") {
         document.querySelector('input').value = 'Error: Invalid Log';
         return;
@@ -87,7 +87,7 @@ Calculator.prototype.tan = (expression) => {
 Calculator.prototype.cot = (expression) => {
    
     let lastNum =  getLastNumber(expression);
-    let result
+    let result;
     if (lastNum === "") {
         document.querySelector('input').value = 'Error: Invalid Log';
         return;
@@ -105,7 +105,7 @@ Calculator.prototype.cot = (expression) => {
 Calculator.prototype.cosec = (expression) => {
    
     let lastNum =  getLastNumber(expression);
-    let result
+    let result;
     if (lastNum === "") {
         document.querySelector('input').value = 'Error: Invalid Log';
         return;
@@ -123,7 +123,7 @@ Calculator.prototype.cosec = (expression) => {
 Calculator.prototype.sec = (expression) => {
    
     let lastNum =  getLastNumber(expression);
-    let result
+    let result;
     if (lastNum === "") {
         document.querySelector('input').value = 'Error: Invalid Log';
         return;
