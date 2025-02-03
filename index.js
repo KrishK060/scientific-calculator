@@ -202,23 +202,18 @@ select.addEventListener("change", (e) => {
             ca.sin(lastNum);
             break;
         case "Cos":
-            console.log("cos");
-            ca.cos(lastNum);
+           ca.cos(lastNum);
             break;
         case "Tan":
-            console.log("tan");
             ca.tan(lastNum);
             break;
         case "Cot":
-            console.log("cot");
             ca.cot(lastNum);
             break;
         case "Cosec":
-            console.log("Cosec");
-            ca.cosec(lastNum);
+           ca.cosec(lastNum);
             break;
         case "Sec":
-            console.log("Sec");
             ca.sec(lastNum);
             break;
         default:
