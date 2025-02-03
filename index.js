@@ -8,11 +8,12 @@ class Calculator {
         this.string = " ";
         this.memory = 0;
     }
+
     getLastNumber(expression) {
         let parts = expression.split(/[^0-9.]/);
         return parts.filter(num => num !== "").pop();
     }
-    
+
     updateInputField(lastNum, result) {
         let inputField = input;
         let tempInput = inputField.value.slice(0, inputField.value.length - lastNum.length);
@@ -51,7 +52,7 @@ class Calculator {
 
     inverse(lastNum) {
         string = 1 / string;
-       let result = 1 / lastNum;
+        let result = 1 / lastNum;
         this.updateInputField(lastNum, result);
     }
 
@@ -61,7 +62,7 @@ class Calculator {
     }
 
     squareRoot(lastNum) {
-       let result = Math.sqrt(lastNum);
+        let result = Math.sqrt(lastNum);
         this.updateInputField(lastNum, result);
     }
 
@@ -84,11 +85,10 @@ class Calculator {
     }
 
     memoryStore(lastNum) {
-       this.memory = parseFloat(lastNum);
+        this.memory = parseFloat(lastNum);
     }
     memoryClear() {
         this.memory = 0;
-        console.log("Memory Cleared");
     }
 
     memoryRecall() {
@@ -99,7 +99,7 @@ class Calculator {
         this.memory += parseFloat(lastNum);
     }
 
-    memorySubtract(lastNum ) {
+    memorySubtract(lastNum) {
         this.memory -= parseFloat(lastNum);
     }
 }
@@ -234,4 +234,4 @@ select.addEventListener("change", (e) => {
     }
 }
 )
-export { input, Calculator, string, convert }
+export {Calculator, convert }
