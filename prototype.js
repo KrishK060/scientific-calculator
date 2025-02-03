@@ -37,7 +37,7 @@ Calculator.prototype.sin = (lastNum) => {
         document.querySelector('input').value = 'Error: Invalid Log';
         return;
     }
-    let result = (flag == 0) ? Math.sin(lastNum * (Math.PI / 180)) : Math.sin(lastNum);
+    let result = (document.querySelector("#deg").value == "deg") ?  Math.sin(lastNum * (Math.PI / 180)):Math.sin(lastNum);
     updateInputField(lastNum, result);
 }
 Calculator.prototype.cos = (expression) => {
@@ -47,7 +47,7 @@ Calculator.prototype.cos = (expression) => {
         return;
     }
     console.log(lastNum);
-    let result = (flag == 0) ? Math.cos(lastNum * (Math.PI / 180)) : Math.cos(lastNum);
+    let result = (document.querySelector("#deg").value == "deg") ? Math.cos(lastNum * (Math.PI / 180)) : Math.cos(lastNum);
     updateInputField(lastNum, result);
 }
 Calculator.prototype.tan = (expression) => {
@@ -57,7 +57,7 @@ Calculator.prototype.tan = (expression) => {
         return;
     }
     console.log(lastNum);
-    let result = (flag == 0) ?  Math.tan(lastNum * (Math.PI / 180)) : 1 / Math.tan(lastNum);
+    let result = (document.querySelector("#deg").value == "deg") ?  Math.tan(lastNum * (Math.PI / 180)) : 1 / Math.tan(lastNum);
     updateInputField(lastNum, result);
 }
 Calculator.prototype.cot = (expression) => {
@@ -67,7 +67,7 @@ Calculator.prototype.cot = (expression) => {
         return;
     }
     console.log(lastNum);
-    let result = (flag == 0) ? 1 / Math.tan(lastNum * (Math.PI / 180)) : 1 / Math.tan(lastNum);
+    let result = (document.querySelector("#deg").value == "deg") ? 1 / Math.tan(lastNum * (Math.PI / 180)) : 1 / Math.tan(lastNum);
     updateInputField(lastNum, result);
 }
 Calculator.prototype.cosec = (expression) => {
@@ -77,7 +77,7 @@ Calculator.prototype.cosec = (expression) => {
         return;
     }
     console.log(lastNum);
-    let result = (flag == 0) ? 1 / Math.sin(lastNum * (Math.PI / 180)) : 1 / Math.sin(lastNum);
+    let result = (document.querySelector("#deg").value == "deg") ? 1 / Math.sin(lastNum * (Math.PI / 180)) : 1 / Math.sin(lastNum);
     updateInputField(lastNum, result);
 }
 Calculator.prototype.sec = (expression) => {
@@ -87,7 +87,7 @@ Calculator.prototype.sec = (expression) => {
         return;
     }
     console.log(lastNum);
-    let result = (flag == 0) ? 1 / Math.cos(lastNum * (Math.PI / 180)) : 1 / Math.cos(lastNum);
+    let result = (document.querySelector("#deg").value == "deg") ? 1 / Math.cos(lastNum * (Math.PI / 180)) : 1 / Math.cos(lastNum);
     updateInputField(lastNum, result);
 }
 export { Calculator };

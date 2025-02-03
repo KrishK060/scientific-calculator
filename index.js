@@ -160,16 +160,16 @@ Array.from(buttons).forEach((buttons) => {
                 break;
             case "deg":
                 console.log("inside");
-                if (flag === 0) {
+              
                     console.log("rad");
-                    document.querySelector("#deg").innerHTML = "rad";
-                    flag = 1;
-                } else {
+                    document.querySelector("#deg").value = "red";
+                    document.querySelector("#deg").innerHTML = "RAD";
+                    break;
+            case "red":
                     console.log("deg");
-                    flag = 0;
+                    document.querySelector("#deg").value = "deg";
                     document.querySelector("#deg").innerHTML = "deg";
-                }
-                break;
+                    break;
             case "n!":
                 ca.factorial();
                 break;
