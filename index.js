@@ -1,22 +1,26 @@
 
 let string = " "
 let buttons = document.querySelectorAll(".btn");
-let input = document.getElementById('input').value;
-let flag =0;
+const input = document.getElementById('input');
+let flag = 0;
 
 class Calculator {
     constructor() {
         this.string = " ";
     }
+    getLastNumber(expression) {
+        let parts = expression.split(/[^0-9.]/); //Split the expression by non-numeric characters
+        return parts.filter(num => num !== "").pop(); //Return the last number from the array
+    }
     stringUpdate(value) {
         string += value;
         document.querySelector('input').value = string
     }
- 
+
     finalAns() {
         string = eval(document.querySelector('input').value);
         document.querySelector('input').value = string
-        
+
     }
     clear() {
         string = " ";
@@ -40,17 +44,28 @@ class Calculator {
     }
     square() {
         string = Math.pow(string, 2);
-        // console.log(string)
         document.querySelector('input').value = string;
     }
     squareRoot() {
-        string = Math.sqrt(string);
-        document.querySelector('input').value = string
+        // debugger;
+        let lastNum = getLastNumber(input.value);
+        console.log("hello")
+        
+        if (lastNum === "") {
+            document.querySelector('input').value = 'Error: Invalid Log';
+            return;
+        }
+        let result = Math.sqrt(lastNum);
+        let tempInput = document.querySelector('input').value.slice(0, document.querySelector('input').value.length - lastNum.length);
+        document.querySelector('input').value = tempInput + result;
+        // string = Math.sqrt(string);
+        // document.querySelector('input').value = string
     }
     changeSign() {
         string = (string) * (-1);
         document.querySelector('input').value = string
     }
+
 }
 let ca = new Calculator;
 Array.from(buttons).forEach((buttons) => {
@@ -88,21 +103,19 @@ Array.from(buttons).forEach((buttons) => {
         else if (e.target.innerHTML == "ln") {
             ca.lnNum(document.querySelector('input').value);
         }
-        else if(e.target.value=="deg"){
+        else if (e.target.value == "deg") {
             console.log("inside")
-            if(flag == 0){
+            if (flag == 0) {
                 console.log("rad")
-                document.querySelector("#deg").innerHTML="rad";
+                document.querySelector("#deg").innerHTML = "rad";
                 flag = 1;
             }
-            
-            else{
+            else {
                 console.log("deg")
                 flag = 0;
-                document.querySelector("#deg").innerHTML="deg";
+                document.querySelector("#deg").innerHTML = "deg";
             }
         }
-
         else {
             ca.stringUpdate(e.target.value)
         }
@@ -112,7 +125,7 @@ Array.from(buttons).forEach((buttons) => {
     })
 });
 let select = document.querySelector("#Trigo")
-select.addEventListener("change",(e)=>{
+select.addEventListener("change", (e) => {
     if (e.target.value == "Sin") {
         console.log("sin")
         ca.sin(document.querySelector('input').value);
@@ -137,13 +150,12 @@ select.addEventListener("change",(e)=>{
         console.log("Sec")
         ca.sec(document.querySelector('input').value);
     }
-
     else {
         ca.stringUpdate(e.target.value)
     }
 }
 )
-export{input,Calculator,string,flag}
+export { input, Calculator, string, flag }
 
 
 
