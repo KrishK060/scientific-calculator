@@ -147,69 +147,75 @@ class Calculator {
 let ca = new Calculator;
 Array.from(buttons).forEach((buttons) => {
     buttons.addEventListener("click", (e) => {
-        if (e.target.innerHTML == "=") {
-            ca.finalAns();
+        switch (e.target.value) {
+            case "=":
+                ca.finalAns();
+                break;
+            case "C":
+                ca.clear();
+                break;
+            case "del":
+                ca.delete();
+                break;
+            case "|x|":
+                ca.absolute();
+                break;
+            case "exp":
+                ca.exponential();
+                break;
+            case "1/x":
+                ca.inverse();
+                break;
+            case "xsquare":
+                ca.square();
+                break;
+            case "sqrt":
+                ca.squareRoot();
+                break;
+            case "opp":
+                ca.changeSign();
+                break;
+            case "log":
+                ca.logNum(document.querySelector('input').value);
+                break;
+            case "ln":
+                ca.lnNum(document.querySelector('input').value);
+                break;
+            case "deg":
+                console.log("inside");
+                if (flag === 0) {
+                    console.log("rad");
+                    document.querySelector("#deg").innerHTML = "rad";
+                    flag = 1;
+                } else {
+                    console.log("deg");
+                    flag = 0;
+                    document.querySelector("#deg").innerHTML = "deg";
+                }
+                break;
+            case "n!":
+                ca.factorial();
+                break;
+            case "MS":
+                ca.memoryStore();
+                break;
+            case "MC":
+                ca.memoryClear();
+                break;
+            case "MR":
+                ca.memoryRecall();
+                break;
+            case "M+":
+                ca.memoryAdd();
+                break;
+            case "M-":
+                ca.memorySubtract();
+                break;
+            default:
+                ca.stringUpdate(e.target.value);
+                break;
         }
-        else if (e.target.innerHTML == "C") {
-            ca.clear();
-        }
-        else if (e.target.innerHTML == "del") {
-            ca.delete();
-        }
-        else if (e.target.innerHTML == "|x|") {
-            ca.absolute();
-        }
-        else if (e.target.innerHTML == "exp") {
-            ca.exponential();
-        }
-        else if (e.target.innerHTML == "1/x") {
-            ca.inverse();
-        }
-        else if (e.target.value == "xsquare") {
-            ca.square();
-        }
-        else if (e.target.value == "sqrt") {
-            ca.squareRoot();
-        }
-        else if (e.target.value == "opp") {
-            ca.changeSign();
-        }
-        else if (e.target.innerHTML == "log") {
-            ca.logNum(document.querySelector('input').value);
-        }
-        else if (e.target.innerHTML == "ln") {
-            ca.lnNum(document.querySelector('input').value);
-        }
-        else if (e.target.value == "deg") {
-            console.log("inside")
-            if (flag == 0) {
-                console.log("rad")
-                document.querySelector("#deg").innerHTML = "rad";
-                flag = 1;
-            }
-            else {
-                console.log("deg")
-                flag = 0;
-                document.querySelector("#deg").innerHTML = "deg";
-            }
-        }
-        else if (e.target.innerHTML == "n!") {
-            ca.factorial();
-        }
-        else if (e.target.value == "MS") {
-            ca.memoryStore();
-        } else if (e.target.value == "MC") {
-            ca.memoryClear();
-        } else if (e.target.value == "MR") {
-            ca.memoryRecall();
-        } else if (e.target.value == "M+") {
-            ca.memoryAdd();
-        } else if (e.target.value == "M-") {
-            ca.memorySubtract();
-        }
-        else {
-            ca.stringUpdate(e.target.value)
-        }
+        
 
 
 
