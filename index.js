@@ -80,7 +80,6 @@ class Calculator {
     memoryStore() {
         let lastNum = this.getLastNumber(input.value);
         this.memory = parseFloat(lastNum);
-        console.log("Stored to Memory: " + this.memory);
     }
     memoryClear() {
         this.memory = 0;
@@ -88,17 +87,14 @@ class Calculator {
     }
     memoryRecall() {
         input.value = this.memory
-        console.log("Memory Recalled: " + this.memory);
     }
     memoryAdd() {
         let lastNum = this.getLastNumber(input.value);
         this.memory += parseFloat(lastNum);
-        console.log("Subtracted from Memory: " + this.memory);
     }
     memorySubtract() {
         let lastNum = this.getLastNumber(input.value);
         this.memory -= parseFloat(lastNum);
-        console.log("Subtracted from Memory: " + this.memory);
     }
 }
 let ca = new Calculator;
