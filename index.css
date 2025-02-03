@@ -62,37 +62,7 @@ button {
     margin-top: 10px;
 }
 
-.bottom1 {
-    display: flex;
-    justify-content: space-between;
-}
-
-.bottom2 {
-    display: flex;
-    justify-content: space-between;
-}
-
-.bottom3 {
-    display: flex;
-    justify-content: space-between;
-}
-
-.bottom4 {
-    display: flex;
-    justify-content: space-between;
-}
-
-.bottom5 {
-    display: flex;
-    justify-content: space-between;
-}
-
-.bottom6 {
-    display: flex;
-    justify-content: space-between;
-}
-
-.bottom7 {
+.bottom1{
     display: flex;
     justify-content: space-between;
 }
