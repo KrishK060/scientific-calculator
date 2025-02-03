@@ -30,22 +30,24 @@ function getLastNumber(expression) {
 }
 
 
+// Helper function to update the input field
+function updateInputField(lastNum, result) {
+    let inputField = document.querySelector('input');
+    let tempInput = inputField.value.slice(0, inputField.value.length - lastNum.length);
+    inputField.value = tempInput + result;
+}
+
 Calculator.prototype.sin = (expression) => {
-    
-    let lastNum =  getLastNumber(expression);
-    let result;
+    let lastNum = getLastNumber(expression);
     if (lastNum === "") {
         document.querySelector('input').value = 'Error: Invalid Log';
         return;
     }
-    if(flag == 0){
-        result = Math.sin(lastNum*(Math.PI/180));
-    }else{
-        result = Math.sin(lastNum);
-    }
-    
-    let tempInput = document.querySelector('input').value.slice(0, document.querySelector('input').value.length - lastNum.length);
-    document.querySelector('input').value = tempInput + result;
+
+    let result = (flag == 0) ? Math.sin(lastNum * (Math.PI / 180)) : Math.sin(lastNum);
+
+    // Calling a helper function
+    updateInputField(lastNum, result);
 }
 
 Calculator.prototype.cos = (expression) => {
@@ -57,14 +59,10 @@ Calculator.prototype.cos = (expression) => {
         return;
     }
     console.log(lastNum);
-    if(flag == 0){
-        result = Math.cos(lastNum*(Math.PI/180));
-    }else{
-        result = Math.cos(lastNum);
-    }
+    result = (flag == 0) ? Math.cos(lastNum * (Math.PI / 180)) : Math.cos(lastNum);
+
     
-    let tempInput = document.querySelector('input').value.slice(0, document.querySelector('input').value.length - lastNum.length);
-    document.querySelector('input').value = tempInput + result;
+    updateInputField(lastNum, result);
 }
 Calculator.prototype.tan = (expression) => {
    
@@ -76,13 +74,12 @@ Calculator.prototype.tan = (expression) => {
     }
     console.log(lastNum);
     if(flag == 0){
-        result = 1/Math.tan(lastNum*(Math.PI/180));
+        result = Math.tan(lastNum*(Math.PI/180));
     }else{
         result = Math.tan(lastNum);
     }
     
-    let tempInput = document.querySelector('input').value.slice(0, document.querySelector('input').value.length - lastNum.length);
-    document.querySelector('input').value = tempInput + result;
+    updateInputField(lastNum, result);
 }
 Calculator.prototype.cot = (expression) => {
    
@@ -93,14 +90,10 @@ Calculator.prototype.cot = (expression) => {
         return;
     }
     console.log(lastNum);
-    if(flag == 0){
-        result = 1/Math.tan(lastNum*(Math.PI/180));
-    }else{
-        result = 1/Math.tan(lastNum);
-    }
+    result = (flag == 0) ? 1 / Math.tan(lastNum * (Math.PI / 180)) : 1 / Math.tan(lastNum);
+
     
-    let tempInput = document.querySelector('input').value.slice(0, document.querySelector('input').value.length - lastNum.length);
-    document.querySelector('input').value = tempInput + result;
+    updateInputField(lastNum, result);
 }
 Calculator.prototype.cosec = (expression) => {
    
@@ -111,14 +104,9 @@ Calculator.prototype.cosec = (expression) => {
         return;
     }
     console.log(lastNum);
-    if(flag == 0){
-        result = 1/Math.sin(lastNum*(Math.PI/180));
-    }else{
-        result = 1/Math.sin(lastNum);
-    }
-    
-    let tempInput = document.querySelector('input').value.slice(0, document.querySelector('input').value.length - lastNum.length);
-    document.querySelector('input').value = tempInput + result;
+    result = (flag == 0) ? 1 / Math.sin(lastNum * (Math.PI / 180)) : 1 / Math.sin(lastNum);
+
+    updateInputField(lastNum, result);
 }
 Calculator.prototype.sec = (expression) => {
    
@@ -129,13 +117,9 @@ Calculator.prototype.sec = (expression) => {
         return;
     }
     console.log(lastNum);
-    if(flag == 0){
-        result = 1/Math.cos(lastNum*(Math.PI/180));
-    }else{
-        result = 1/Math.cos(lastNum);
-    }
+    result = (flag == 0) ? 1 / Math.cos(lastNum * (Math.PI / 180)) : 1 / Math.cos(lastNum);
+
     
-    let tempInput = document.querySelector('input').value.slice(0, document.querySelector('input').value.length - lastNum.length);
-    document.querySelector('input').value = tempInput + result;
+    updateInputField(lastNum, result);
 }
     export { Calculator };

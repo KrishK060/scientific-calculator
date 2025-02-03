@@ -2,14 +2,12 @@ body{
     display:flex;
     justify-content: center;
 }
-
 .container{
     background-color: gray;
     height:640px;
     width:610px;
     padding: 20px;
 }
-
 .input{
     width:100%;
     height:50px;
@@ -26,7 +24,6 @@ body{
     display: flex;
     justify-content:space-between;
     margin-top: 10px;
-   
 }
 .deg{
     align-items: center;
@@ -83,7 +80,6 @@ button{
     display: flex;
     justify-content: space-between;
 }
-
 .btn1{
     /* padding:25px; */
     /* width: 30px; */

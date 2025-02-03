@@ -1,6 +1,6 @@
 
 let string = " "
-let buttons = document.querySelectorAll(".btn");
+const buttons = document.querySelectorAll(".btn");
 const input = document.getElementById('input');
 let flag = 0;
 
@@ -223,33 +223,36 @@ Array.from(buttons).forEach((buttons) => {
 });
 let select = document.querySelector("#Trigo")
 select.addEventListener("change", (e) => {
-    if (e.target.value == "Sin") {
-        console.log("sin")
-        ca.sin(document.querySelector('input').value);
+    switch (e.target.value) {
+        case "Sin":
+            console.log("sin");
+            ca.sin(document.querySelector('input').value);
+            break;
+        case "Cos":
+            console.log("cos");
+            ca.cos(document.querySelector('input').value);
+            break;
+        case "Tan":
+            console.log("tan");
+            ca.tan(document.querySelector('input').value);
+            break;
+        case "Cot":
+            console.log("cot");
+            ca.cot(document.querySelector('input').value);
+            break;
+        case "Cosec":
+            console.log("Cosec");
+            ca.cosec(document.querySelector('input').value);
+            break;
+        case "Sec":
+            console.log("Sec");
+            ca.sec(document.querySelector('input').value);
+            break;
+        default:
+            ca.stringUpdate(e.target.value);
+            break;
     }
-    else if (e.target.value == "Cos") {
-        console.log("cos")
-        ca.cos(document.querySelector('input').value);
-    }
-    else if (e.target.value == "Tan") {
-        console.log("tan")
-        ca.tan(document.querySelector('input').value);
-    }
-    else if (e.target.value == "Cot") {
-        console.log("cot")
-        ca.cot(document.querySelector('input').value);
-    }
-    else if (e.target.value == "Cosec") {
-        console.log("Cosec")
-        ca.cosec(document.querySelector('input').value);
-    }
-    else if (e.target.value == "Sec") {
-        console.log("Sec")
-        ca.sec(document.querySelector('input').value);
-    }
-    else {
-        ca.stringUpdate(e.target.value)
-    }
+    
 }
 )
 export { input, Calculator, string, flag }
